@@ -14,7 +14,7 @@ The MedianaDesigner package provides efficient simulation-based tools for Phase 
 \item Optimal selection of a futility stopping rule.
 \item Event prediction in event-driven trials.
 }
-For more information on this package, visit \url{https://mediana.us/free-software/}. The technical manuals with a detailed description of the statistical methodology implemented in each module can be found in the package's \code{doc} folder.
+For more information on this package, visit \url{https://mediana.us/free-software/}. The technical manuals with a detailed description of the statistical methodology implemented in each module can be found at \url{https://medianasoft.github.io/MedianaDesigner}.
 }
 \details{
 \tabular{ll}{

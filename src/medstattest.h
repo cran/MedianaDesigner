@@ -114,7 +114,7 @@ void TupleSort(const std::vector<double> &in1, const std::vector<char> &in2, con
 
 TestResult CoreLogrankTest(const std::vector<double> &xv, const std::vector<double> &yv, const std::vector<char> &cxv, const std::vector<char> &cyv, const double &margin, const int &direction) {
 
-    int i;
+    unsigned int i;
 
     std::vector<char> ixv(xv.size(),1);
     std::vector<char> iyv(yv.size(),2);
@@ -164,7 +164,7 @@ TestResult CoreLogrankTest(const std::vector<double> &xv, const std::vector<doub
             m2[curit] += 1-vec[i].cens;
             cens2[curit]+=vec[i].cens;
         }
-        while (vec[i].t==vec[i+1].t)
+        while (i+1<vec.size() && vec[i].t==vec[i+1].t)  // VIC: Addithinal check "i+1<vec.size() &&" 
         {
             ++i;
             if(vec[i].id == 1)
