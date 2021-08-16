@@ -135,8 +135,8 @@ test_that("Success run FutRule with Normal case", {
     abs(optimal_lower - 6) < 4, 
     info = paste("optimal_lower(",optimal_lower,") is out of range 6±4"))
   expect_true(
-    abs(optimal_upper - 65) < 15,
-    info = paste("optimal_upper(",optimal_upper,") is out of range 65±15"))
+    abs(optimal_upper - 65) < 30,
+    info = paste("optimal_upper(",optimal_upper,") is out of range 65±30"))
 
   # Check for report generation
   FutRuleReportDoc(results)
@@ -256,8 +256,8 @@ test_that("Success run FutRule with default parameters", {
     abs(optimal_lower - 6) < 4, 
     info = paste("optimal_lower(",optimal_lower,") is out of range 6±4"))
   expect_true(
-    abs(optimal_upper - 65) < 15,
-    info = paste("optimal_upper(",optimal_upper,") is out of range 65±15"))
+    abs(optimal_upper - 65) < 30,
+    info = paste("optimal_upper(",optimal_upper,") is out of range 65±30"))
 })
 
 test_that("Success run FutRule with Lower direction", {

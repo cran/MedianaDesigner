@@ -303,6 +303,7 @@ ReportDoc = function(results) {
   if (class(results) == "ADPopSelResults") doc = ADPopSelReportDoc(results)
   if (class(results) == "FutRuleResults") doc = FutRuleReportDoc(results)
   if (class(results) == "EventPredResults") doc = EventPredReportDoc(results)
+  if (class(results) == "ADRandResults") doc = ADRandReportDoc(results)
 
   return(doc)  
 
@@ -373,3 +374,13 @@ print.EventPredResults = function (x, ...) {
   cat("Use the GenerateReport function to create a detailed simulation report.\n")
 }
 
+#' Print method for ADRandResults
+#'
+#' @param x ADRandResults object
+#' @param ... Arguments passed to or from other methods
+#'
+#' @export
+#' @exportS3Method
+print.ADRandResults = function (x, ...) {
+  cat("Use the GenerateReport function to create a detailed simulation report.\n")
+}

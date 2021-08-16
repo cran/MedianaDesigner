@@ -89,7 +89,6 @@ vector<double> Normal(const int &n, const double &mean, const double &sd) {
 
 }
 
-// # nocov start
 // Vector of uniformly distributed values 
 vector<double> Uniform(const int &n, const double &min, const double &max) {
 
@@ -98,7 +97,15 @@ vector<double> Uniform(const int &n, const double &min, const double &max) {
     return result;  
 
 }
-// # nocov end
+
+// Vector of gamma distributed values 
+vector<double> Gamma(const int &n, const double &shape, const double &rate) {
+
+    NumericVector temp_vector = Rcpp::rgamma(n, shape, 1.0 / rate);
+    vector<double> result = as<vector<double>>(temp_vector); 
+    return result;  
+
+}
 
 // Vector of truncated exponential values 
 vector<double> TruncatedExponential(const int &n, const double &par, const double &min, const double &max) {
@@ -108,7 +115,7 @@ vector<double> TruncatedExponential(const int &n, const double &par, const doubl
     int i;
 
     if (par == 0.0) {
-        temp_vector = Rcpp::runif(n, min, max);     // # nocov
+        temp_vector = Rcpp::runif(n, min, max);     // // nocov
     } else {
         for (i = 0; i < n; i++) {
             temp = - log(1.0 - Rcpp::runif(1, 0.0, 1.0)[0] * (1.0 - exp(-par))) / par;
@@ -131,7 +138,7 @@ vector<double> Enrollment(const int &n, const double &enrollment_period, const i
     // Uniform enrollment
     if (enrollment_distribution == 1) { 
 
-        result = Uniform(n, 0.0, enrollment_period);    // # nocov
+        result = Uniform(n, 0.0, enrollment_period);    // // nocov
 
     }
 
@@ -158,7 +165,7 @@ vector<double> Dropout(const int &n, const int &dropout_distribution, const vect
     // No dropout
     if (dropout_distribution == 1) { 
 
-        result = fillvec(n, 100000.0);      // # nocov
+        result = fillvec(n, 100000.0);      // // nocov
 
     }
 
@@ -174,15 +181,15 @@ vector<double> Dropout(const int &n, const int &dropout_distribution, const vect
 
 }
 
-// # nocov start
+// // nocov start
 // Multivariate normal distribution (single vector)
 vector<double> MVNormal(const int &m, const vector<double> &mean, const vector<double> &sd, const double &rho) {
 
     int i, j, k;
     double csum;
 
+    NumericMatrix chol(m, m), corr(m, m);
     vector<double> normal_data(m), mv_normal_data(m);
-    NumericMatrix chol(m,m), corr(m,m);
 
     for(i = 0; i< m; i++){
         for(j = 0; j < m; j++){
@@ -192,10 +199,9 @@ vector<double> MVNormal(const int &m, const vector<double> &mean, const vector<d
     }    
 
     // Cholesky lower diagonal matrix
-    // http://rosettacode.org/wiki/Cholesky_decomposition
     for(i = 0; i< m; i++){
             for(j = 0; j < (i + 1); j++){
-                csum = 0.0;
+                csum = 0;
                 for(k = 0; k < j; k++){
                     csum += chol(i, k) * chol(j, k);
                 }
@@ -225,6 +231,6 @@ vector<double> MVNormal(const int &m, const vector<double> &mean, const vector<d
     return mv_normal_data;
 
 }
-// # nocov end
+// // nocov end
 
 #endif // MEDDIST_H

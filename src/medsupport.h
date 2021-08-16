@@ -13,6 +13,16 @@ vector<double> fillvec(const int &n, const double &value) {
     return result;  
 }
 
+// Vector of constant values
+vector<int> FillVecInt(const int &n, const int &value) {
+
+    std::vector<int> result(n); 
+    for (int i = 0; i < n; i++) {
+        result[i] = value;
+    }
+    return result;  
+}
+
 // Vector of treatment indicators
 vector<int> FillTreatmentIndicators(const vector<int> &n) { 
 
@@ -27,7 +37,7 @@ vector<int> FillTreatmentIndicators(const vector<int> &n) {
     return result;  
 }
 
-// # nocov start
+// // nocov start
 // Extract a row
 vector<double> ExtractRow(const NumericMatrix &mat, const int &index) {
 
@@ -70,12 +80,19 @@ double Sign(const double &x) {
     return res;
 
 }
-// # nocov end
+// // nocov end
 
 double sum(const vector<double> &vec) {
     int i, m = vec.size();
     double sum = 0.0;
     for(i = 0; i < m; ++i) sum += vec[i];
+    return sum;
+}
+
+double sumsq(const vector<double> &vec) {
+    int i, m = vec.size();
+    double sum = 0.0;
+    for(i = 0; i < m; ++i) sum += Sq(vec[i]);
     return sum;
 }
 
@@ -93,7 +110,22 @@ int SumVecInt(const vector<int> &vec) {
     return sum;
 }
 
-// # nocov start
+vector<double> vecsum(const vector<double> &x, const vector<double> &y) {
+    int i, m = x.size();
+    vector<double> sum(m);
+    for(i = 0; i < m; ++i) sum[i] = x[i] + y[i];
+    return sum;
+}
+
+double scalprod(const vector<double> &x, const vector<double> &y) {
+    int i, m = x.size();
+    double sum = 0.0;
+    for(i = 0; i < m; ++i) sum += x[i] * y[i];
+    return sum;
+}
+
+
+// // nocov start
 vector<double> AddVec(const vector<double> &x, const vector<double> &y) {
     int i, m = x.size();
     vector<double> sum(m);
@@ -115,6 +147,6 @@ vector<double> ComputeAverage(vector<double> &vec, const int &nsims) {
     return ave;  
 
 }
-// # nocov end
+// // nocov end
 
 #endif // MEDSUPPORT_H
