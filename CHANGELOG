@@ -6,7 +6,15 @@ First release of the package with the initial implementation of five modules:
 - Optimal selection of a futility stopping rule (FutRule function).
 - Event prediction in event-driven trials (EventPred function).
 
-2021-07-15 Version 0.2
+2021-07-15 Version 0.2.2
 Fixed minor bugs and added the following features:
 - Enabled 100% test coverage
 - Added the "direction" parameter (direction of favorable outcome) to the ADSSMod, ADTreatSel, ADPopSel and FutRule functions 
+
+2021-08-15 Version 0.2.3
+Fixed minor bugs and added the following module:
+- Experimental module for designing trials with response-adaptive randomization (ADRand function)
+
+2021-09-15 Version 0.3
+Fixed minor bugs and added the following module:
+- Experimental module for designing traditional trials with multiple objectives (MultAdj function)

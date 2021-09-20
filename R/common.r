@@ -304,6 +304,7 @@ ReportDoc = function(results) {
   if (class(results) == "FutRuleResults") doc = FutRuleReportDoc(results)
   if (class(results) == "EventPredResults") doc = EventPredReportDoc(results)
   if (class(results) == "ADRandResults") doc = ADRandReportDoc(results)
+  if (class(results) == "MultAdjResults") doc = MultAdjReportDoc(results)
 
   return(doc)  
 
@@ -317,7 +318,7 @@ GenerateReport = function(results, report_filename) {
   print(ReportDoc(results), target = report_filename)          
 
 }
-# End of ReportDoc       
+# End of GenerateReport       
 
 #' Print method for ADSSModResults
 #'
@@ -327,7 +328,7 @@ GenerateReport = function(results, report_filename) {
 #' @export
 #' @exportS3Method
 print.ADSSModResults = function (x, ...) {
-  cat("Use the GenerateReport function to create a detailed simulation report.\n")
+  cat("Use the GenerateReport function to create a detailed simulation report.\n")  # nocov
 }
 
 #' Print method for ADTreatSelResults
@@ -338,7 +339,7 @@ print.ADSSModResults = function (x, ...) {
 #' @export
 #' @exportS3Method
 print.ADTreatSelResults = function (x, ...) {
-  cat("Use the GenerateReport function to create a detailed simulation report.\n")
+  cat("Use the GenerateReport function to create a detailed simulation report.\n")  # nocov
 }
 
 #' Print method for ADPopSelResults
@@ -349,7 +350,7 @@ print.ADTreatSelResults = function (x, ...) {
 #' @export
 #' @exportS3Method
 print.ADPopSelResults = function (x, ...) {
-  cat("Use the GenerateReport function to create a detailed simulation report.\n")
+  cat("Use the GenerateReport function to create a detailed simulation report.\n")  # nocov
 }
 
 #' Print method for FutRuleResults
@@ -360,7 +361,7 @@ print.ADPopSelResults = function (x, ...) {
 #' @export
 #' @exportS3Method
 print.FutRuleResults = function (x, ...) {
-  cat("Use the GenerateReport function to create a detailed simulation report.\n")
+  cat("Use the GenerateReport function to create a detailed simulation report.\n")  # nocov
 }
 
 #' Print method for EventPredResults
@@ -371,7 +372,7 @@ print.FutRuleResults = function (x, ...) {
 #' @export
 #' @exportS3Method
 print.EventPredResults = function (x, ...) {
-  cat("Use the GenerateReport function to create a detailed simulation report.\n")
+  cat("Use the GenerateReport function to create a detailed simulation report.\n")  # nocov
 }
 
 #' Print method for ADRandResults
@@ -382,5 +383,16 @@ print.EventPredResults = function (x, ...) {
 #' @export
 #' @exportS3Method
 print.ADRandResults = function (x, ...) {
-  cat("Use the GenerateReport function to create a detailed simulation report.\n")
+  cat("Use the GenerateReport function to create a detailed simulation report.\n")  # nocov
+}
+
+#' Print method for MultAdjResults
+#'
+#' @param x MultAdjResults object
+#' @param ... Arguments passed to or from other methods
+#'
+#' @export
+#' @exportS3Method
+print.MultAdjResults = function (x, ...) {
+  cat("Use the GenerateReport function to create a detailed simulation report.\n")  # nocov
 }

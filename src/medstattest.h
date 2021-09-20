@@ -38,7 +38,7 @@ TestResult PropTest(const vector<double> &x, const vector<double> &y, const doub
     if (direction == 2) stat = - stat;
 
     if (std::isnan(stat)) {
-        stat = -3.0;        // // nocov
+        stat = -3.0;        // # nocov
     }
 
     TestResult res;
@@ -60,7 +60,7 @@ TestResult TTest(const vector<double> &x, const vector<double> &y, const double 
     double Var2=0;       // Var2 = Sample 2 Variation.
     unsigned Sn2 = y.size();     // Sn2 = Sample 2 Size.
     double j;
-    for (int i = 0; i<Sn1 ; ++i)
+    for (unsigned i = 0; i<Sn1 ; ++i)
     {
         j = x[i];
         Sm1 += j;
@@ -68,7 +68,7 @@ TestResult TTest(const vector<double> &x, const vector<double> &y, const double 
     }
     Sm1 /=Sn1;
     Var1 = (Var1/Sn1-Sm1*Sm1)*Sn1/(Sn1-1);
-    for (int i = 0; i<Sn2 ; ++i)
+    for (unsigned i = 0; i<Sn2 ; ++i)
     {
         j = y[i];
         Sm2 += j;
@@ -88,7 +88,7 @@ TestResult TTest(const vector<double> &x, const vector<double> &y, const double 
     TestResult res;
 
     if (std::isnan(stat)) {
-        stat = -3.0;        // // nocov
+        stat = -3.0;        // # nocov
     }
 
     // One-sided p-value based on a t distribution
@@ -99,11 +99,10 @@ TestResult TTest(const vector<double> &x, const vector<double> &y, const double 
 
 }
 
-
 void TupleSort(const std::vector<double> &in1, const std::vector<char> &in2, const std::vector<char> &in3, vector<LogRankdata> &vec) {
 
     vec.resize(in1.size());
-    for (int i = 0; i < in1.size();++i){
+    for (unsigned i = 0; i < in1.size();++i){
         vec[i].t = in1[i];
         vec[i].cens = in2[i];
         vec[i].id = in3[i];
@@ -113,8 +112,6 @@ void TupleSort(const std::vector<double> &in1, const std::vector<char> &in2, con
 
 
 TestResult CoreLogrankTest(const std::vector<double> &xv, const std::vector<double> &yv, const std::vector<char> &cxv, const std::vector<char> &cyv, const double &margin, const int &direction) {
-
-    unsigned int i;
 
     std::vector<char> ixv(xv.size(),1);
     std::vector<char> iyv(yv.size(),2);
@@ -147,7 +144,7 @@ TestResult CoreLogrankTest(const std::vector<double> &xv, const std::vector<doub
     std::vector<int> cens1,cens2;
     cens1.reserve(vec.size());cens2.reserve(vec.size());
     int curit=0;
-    for (i =0; i <vec.size();++i)
+    for (unsigned i=0; i<vec.size(); ++i)
     {
         t.push_back(vec[i].t);
         m1.push_back(0);
@@ -164,8 +161,8 @@ TestResult CoreLogrankTest(const std::vector<double> &xv, const std::vector<doub
             m2[curit] += 1-vec[i].cens;
             cens2[curit]+=vec[i].cens;
         }
-        while (i+1<vec.size() && vec[i].t==vec[i+1].t)  // VIC: Addithinal check "i+1<vec.size() &&" 
-        {
+        while (i+1<vec.size() && vec[i].t==vec[i+1].t)
+        {   // # nocov start
             ++i;
             if(vec[i].id == 1)
             {
@@ -173,11 +170,11 @@ TestResult CoreLogrankTest(const std::vector<double> &xv, const std::vector<doub
                 cens1[curit]+=vec[i].cens;
             }
             else
-            {   // // nocov start
+            {   
                 m2[curit] += 1-vec[i].cens;
                 cens2[curit] += (int)vec[i].cens;
-            }   // // nocov end
-        }
+            }   
+        }   // # nocov end
         ++curit;
     }
 
@@ -250,7 +247,7 @@ TestResult LogrankTest(const OutcomeCensor &outcome_censor_x, const OutcomeCenso
     return res;
 }
 
-double FindMilestone(const vector<int> &stratum_list, const vector<int> &stratum, const vector<double> &local_start, const int &target) {
+double FindMilestone(const vector<int> &stratum_list, const vector<int> &stratum, const vector<double> &local_start, const unsigned &target) {
 
     double milestone = 0.0;
     vector<double> vec;
@@ -266,13 +263,13 @@ double FindMilestone(const vector<int> &stratum_list, const vector<int> &stratum
         sort(vec.begin(), vec.end());
 
         if (target > vec.size()) {
-            milestone = vec.back();     // // nocov
+            milestone = vec.back();     // # nocov
         } else {        
             milestone = vec[target - 1];
         }
 
     } else {
-        milestone = 10000.0;            // // nocov 
+        milestone = 10000.0;            // # nocov 
     }
 
 
@@ -343,7 +340,7 @@ double CombFunctionTestStat(const double &test_stat1, const double &test_stat2, 
 
 }
 
-// // nocov start
+// # nocov start
 vector<double> MarginalCombTest(const double &p1, const double &p2, const int &test) {
 
     vector<double> adjusted_pvalue(2);
@@ -372,6 +369,6 @@ double IntersectionPvalue(const double &p1, const double &p2, const int &test) {
     return intersection_pvalue;
 
 }
-// // nocov end
+// # nocov end
 
 #endif // MEDSTATTEST_H
