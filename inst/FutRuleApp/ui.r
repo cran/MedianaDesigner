@@ -31,14 +31,7 @@ shinyUI(
               collapsible = FALSE,
               width = 12,
 
-              "The web application computes operating characteristics 
-              of a multi-arm trial design with a single interim analysis. 
-              A futility stopping rule will be applied at this interim 
-              look and the trial will be stopped early for futility 
-              if the predicted probability of success (conditional power) 
-              is less than a pre-defined futility threshold in all treatment arms. 
-              An optimal value of the futility threshold is derived by maximizing 
-              the sensitivity and specificity rates."
+              "The web application computes operating characteristics of a multi-arm trial design with a single interim analysis. A futility stopping rule will be applied at this interim look and the trial will be stopped early for futility if the predicted probability of success (conditional power) is less than a pre-defined futility threshold in all treatment arms. An optimal value of the futility threshold is derived by maximizing the sensitivity and specificity rates."
             )
           ),
 
@@ -346,37 +339,20 @@ shinyUI(
             column(12, class="col-lg-12",
 
               box(
-                title = "Sensitivity rate",
+                title = "Sensitivity and specificity rates",
                 status = "primary",
                 solidHeader = TRUE,
                 collapsible = TRUE,
                 width = NULL,
                 
-                imageOutput("Sensitivity", height = "auto"),
+                imageOutput("SensSpec", height = "auto"),
 
                 tags$p(class = "help-block",
-                  "The sensitivity rate is defined as the probability of correctly retaining at least one treatment arm at the interim analysis. This probability is evaluated under the alternative hypothesis of beneficial effect, i.e., all treatments are effective. The sensitivity rate decreases with the futility threshold.")
+                  "Red curve: Sensitivity rate (probability of correctly retaining at least one treatment arm at the interim analysis, evaluated under the alternative hypothesis of beneficial effect, i.e., all treatments are effective). Blue curve: Specificity rate (probability of correctly stopping all treatment arms at the interim analysis due to futility, evaluated under the null hypothesis of no effect, i.e., all treatments are ineffective).")
 
               )
             ),            
-
-            column(12, class="col-lg-12",
-
-              box(
-                title = "Specificity rate",
-                status = "primary",
-                solidHeader = TRUE,
-                collapsible = TRUE,
-                width = NULL,
-                
-                imageOutput("Specificity", height = "auto"),
-
-                tags$p(class = "help-block",
-                  "The specificity rate is defined as the probability of correctly stopping all treatment arms at the interim analysis due to futility. This probability is evaluated under the null hypothesis of no effect, i.e., all treatments are ineffective. The specificity rate increases with the futility threshold.")
-
-              )
-            ),            
-
+ 
             column(12, class="col-lg-12",
 
               box(

@@ -25,15 +25,12 @@ shinyUI(
 
           fluidRow(
             box(
-              title = "Event prediction in event-driven trials",
+              title = "Blinded event prediction in event-driven trials",
               solidHeader = FALSE,
               collapsible = FALSE,
               width = 12,
 
-              "The web application computes event predictions 
-              for Phase II or Phase III trials with an event-driven design. 
-              Blinded event data at an interim analysis are used to forecast 
-              the number of events at pre-defined time points in the future."
+              "The web application computes event predictions for Phase II or Phase III trials with an event-driven design. Blinded event data at an interim analysis are used to forecast the number of events at pre-defined time points in the future."
             )
           ),
 
