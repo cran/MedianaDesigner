@@ -1,5 +1,5 @@
 0101ff8a96e4a98da57d83501e8c84dd *CHANGELOG
-ded0a50622740a8196f1f2d4e3b81a6b *DESCRIPTION
+225d750c772a5a0930befc4e69e7acbb *DESCRIPTION
 fe509b32decf0695f957bced4a41a53d *NAMESPACE
 76dff75e4dee14e50aa7d375f33f38e8 *R/ADPopSel.r
 e62782b65e9d3b11083b02fcbb8cee3f *R/ADRand.r
@@ -94,11 +94,11 @@ a5282dd7ab5e90e64161f0fdf3342091 *src/medstruct.h
 64013f99c8391d7602fe2e751fdd9e72 *src/medsupport.h
 fb56c17dc3ea16befcd5345fe65908e0 *src/varcuboid.h
 1743b9b40e8b11e0b2cd0afa8631869e *tests/testthat.r
-ad6ac92a44d358aa7a48d366c714a055 *tests/testthat/test-ADPopSel.r
-5c7c3296ad7852d781f1064d7904d5fa *tests/testthat/test-ADRand.r
-26cbce63ce46fae9483e6080c66ec13e *tests/testthat/test-ADSSMod.r
-7c1b0801f7c6824f54cc1ef4ed1c9253 *tests/testthat/test-ADTreatSel.r
-f43889ceb3a3f0778f8df62028850d41 *tests/testthat/test-EventPred.r
-dcf2c8873f08b032244650616075737d *tests/testthat/test-FutRule.r
-582eccbc35f23943490a7bfdfcdad044 *tests/testthat/test-MultAdj.r
+3a61cb6b2e73ac4b19873b12ac37b868 *tests/testthat/test-ADPopSel.r
+cf0108f280c8881cb8bc2e83a56dac33 *tests/testthat/test-ADRand.r
+c8183c3f0f3462c88397631652804c54 *tests/testthat/test-ADSSMod.r
+d38137665d1b42b91cde5cabf269e1ba *tests/testthat/test-ADTreatSel.r
+963e9b389c10e6ee010edc138f617166 *tests/testthat/test-EventPred.r
+90abda9ff3d1918b11905e85dce8e82f *tests/testthat/test-FutRule.r
+0cb721df4bcf1a95a5c29caf558323cf *tests/testthat/test-MultAdj.r
 c67baf4f213144ec076b8ef549c56754 *tests/testthat/test-common.R
