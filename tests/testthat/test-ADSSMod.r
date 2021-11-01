@@ -143,7 +143,7 @@ test_that("Success run ADSSMod with Normal case", {
   # Set the seed of R‘s random number generator.
   # It also takes effect to Rcpp randome generation functions.
   # https://stackoverflow.com/questions/60119621/get-the-same-sample-of-integers-from-rcpp-as-base-r
-  #RNGkind(sample.kind = "Rounding")
+  suppressWarnings(RNGkind(sample.kind = "Rounding"))
   set.seed(5)
 
   # Success run with check default values

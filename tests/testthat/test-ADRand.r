@@ -66,15 +66,19 @@ test_that("Success run ADRand with Normal case", {
   # Set the seed of R‘s random number generator.
   # It also takes effect to Rcpp randome generation functions.
   # https://stackoverflow.com/questions/60119621/get-the-same-sample-of-integers-from-rcpp-as-base-r
-  #RNGkind(sample.kind = "Rounding")
+  suppressWarnings(RNGkind(sample.kind = "Rounding"))
   set.seed(5)
 
+  parameters = normalCase
+  # Skip chart generation in tests
+  parameters$withoutCharts = TRUE
+
   # Run simulations
-  results = ADRand(normalCase)
+  results = ADRand(parameters)
 
   expect_is(results, "ADRandResults")
   expect_equal(length(results), 2)
-  expect_equal(length(results$parameters), length(normalCase)+8)
+  expect_equal(length(results$parameters), length(normalCase)+10)
   expect_equal(length(results$sim_results), 5)
   
   # Calculate summary
@@ -145,7 +149,7 @@ test_that("Success run ADRand with Normal case with changed direction", {
   results = ADRand(changedNormalCase)
   expect_is(results, "ADRandResults")
   expect_equal(length(results), 2)
-  expect_equal(length(results$parameters), length(normalCase)+8)
+  expect_equal(length(results$parameters), length(normalCase)+9)
   expect_equal(length(results$sim_results), 5)
 
   # TODO: Check result
