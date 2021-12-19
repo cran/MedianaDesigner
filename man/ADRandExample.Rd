@@ -90,7 +90,7 @@ parameters$alpha = 0.025
 # Number of simulations, you should prefer more
 parameters$nsims = 35
 
-# Remove this parameter in you code:
+# Remove this parameter in your code:
 parameters$withoutCharts = TRUE
 
 # Run simulations to compute operating characteristics
