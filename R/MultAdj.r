@@ -26,7 +26,7 @@ MultAdj = function(parameters) {
   parameters$random_seed = random_seed
 
   # Set the seed of R's random number generator.
-  # It also takes effect to Rcpp randome generation functions.
+  # It also takes effect to Rcpp random generation functions.
   # https://stackoverflow.com/questions/60119621/get-the-same-sample-of-integers-from-rcpp-as-base-r
   suppressWarnings(RNGkind(sample.kind = "Rounding"))
   set.seed(random_seed)
@@ -132,7 +132,7 @@ MultAdj = function(parameters) {
                           NA) 
 
   if (!is.null(parameters$ncores)) {
-
+    # nocov start
     # Maximum number of cores
     max_ncores = parallel::detectCores()
 
@@ -147,7 +147,7 @@ MultAdj = function(parameters) {
                            c("Value"),
                            "int",
                            NA) 
-
+    # nocov end
   } else {
     parameters$ncores = 1
   }
@@ -530,7 +530,6 @@ MultAdj = function(parameters) {
   parameters$hazard_rates = 0
   parameters$dropout_parameter = 0
   parameters$enrollment_distribution = 2
-  parameters$max_sample_size = max(parameters$sample_size)
 
   # All means and SDs
   if (endpoint_index == 1) {
@@ -563,7 +562,11 @@ MultAdj = function(parameters) {
   # Total sample size after accounting for dropout rates
   if (endpoint_index != 3) {
     parameters$sample_size_adj = floor(parameters$sample_size * (1 - parameters$dropout_rate))
+  } else {
+    parameters$sample_size_adj = parameters$sample_size
   }
+
+  parameters$max_sample_size = max(parameters$sample_size_adj)
 
   ###########################################################
 
@@ -709,7 +712,7 @@ MultAdjReportDoc = function(results) {
 
    # Error checks
 
-   if (class(results) != "MultAdjResults") stop("The object was not created by the MultAdj function", call. = FALSE)
+   if (!is(results, "MultAdjResults")) stop("The object was not created by the MultAdj function", call. = FALSE)
 
   #############################################################################
 
@@ -1279,22 +1282,14 @@ MultAdjReportDoc = function(results) {
 }
 # End of MultAdjReportDoc
 
-# print.MultAdjResults = function (results) {
-
-#   cat("Use the GenerateReport function to create a detailed simulation report.\n")
-
-# }
-
 # --==[ MultAdj1 ]==--
 MultAdj1NCores = function(parameters) {
   ncores = parameters$ncores
 
-  # cat(paste("\nMultAdj1NCores[ nsims=",parameters$nsims,", ncores=",ncores,", nsims_per_core=",parameters$nsims_per_core,"]\n"))
-
   # Run simulations on multiple cores to compute key characteristics
 
   if (ncores > 1) {
-
+    # nocov start
     cl = parallel::makeCluster(ncores)
 
     # Export all functions in the global environment to each node
@@ -1313,7 +1308,7 @@ MultAdj1NCores = function(parameters) {
       sim_results = rbind(sim_results, simulation_list[[i]]$sim_results)
     }
     simulations = list(sim_results = sim_results)
-
+    # nocov end
   } else {
 
     simulations = MultAdj1SingleCore(parameters)
@@ -1335,12 +1330,10 @@ MultAdj1SingleCore = function(parameters) {
 MultAdj2NCores = function(parameters) {
   ncores = parameters$ncores
 
-  # cat(paste("\nMultAdj2NCores[ nsims=",parameters$nsims,", ncores=",ncores,", nsims_per_core=",parameters$nsims_per_core,"]\n"))
-
   # Run simulations on multiple cores to compute key characteristics
 
   if (ncores > 1) {
-
+    # nocov start
     cl = parallel::makeCluster(ncores)
 
     # Export all functions in the global environment to each node
@@ -1359,7 +1352,7 @@ MultAdj2NCores = function(parameters) {
       sim_results = rbind(sim_results, simulation_list[[i]]$sim_results)
     }
     simulations = list(sim_results = sim_results)
-
+    # nocov end
   } else {
 
     simulations = MultAdj2SingleCore(parameters)
@@ -1381,12 +1374,10 @@ MultAdj2SingleCore = function(parameters) {
 MultAdj3NCores = function(parameters) {
   ncores = parameters$ncores
 
-  # cat(paste("\nMultAdj3NCores[ nsims=",parameters$nsims,", ncores=",ncores,", nsims_per_core=",parameters$nsims_per_core,"]\n"))
-
   # Run simulations on multiple cores to compute key characteristics
 
   if (ncores > 1) {
-
+    # nocov start
     cl = parallel::makeCluster(ncores)
 
     # Export all functions in the global environment to each node
@@ -1405,7 +1396,7 @@ MultAdj3NCores = function(parameters) {
       sim_results = rbind(sim_results, simulation_list[[i]]$sim_results)
     }
     simulations = list(sim_results = sim_results)
-
+    # nocov end
   } else {
 
     simulations = MultAdj3SingleCore(parameters)

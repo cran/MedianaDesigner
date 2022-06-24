@@ -26,7 +26,7 @@ FutRule = function(parameters) {
   parameters$random_seed = random_seed
 
   # Set the seed of R's random number generator.
-  # It also takes effect to Rcpp randome generation functions.
+  # It also takes effect to Rcpp random generation functions.
   # https://stackoverflow.com/questions/60119621/get-the-same-sample-of-integers-from-rcpp-as-base-r
   suppressWarnings(RNGkind(sample.kind = "Rounding"))
   set.seed(random_seed)
@@ -119,7 +119,7 @@ FutRule = function(parameters) {
   }
 
   if (!is.null(parameters$ncores)) {
-
+    # nocov start
     # Maximum number of cores
     max_ncores = parallel::detectCores()
 
@@ -134,7 +134,7 @@ FutRule = function(parameters) {
                            c("Value"),
                            "int",
                            NA) 
-
+    # nocov end
   } else {
     parameters$ncores = 1
   }
@@ -422,7 +422,7 @@ FutRuleReportDoc = function(results) {
 
    # Error checks
 
-   if (class(results) != "FutRuleResults") stop("The object was not created by the FutRule function.", call. = FALSE)
+   if (!is(results, "FutRuleResults")) stop("The object was not created by the FutRule function.", call. = FALSE)
 
   #############################################################################
 
@@ -700,10 +700,8 @@ FutRuleNCores = function(parameters) {
 
   ncores = parameters$ncores
 
-  # cat(paste("\nFutRuleNCore[ nsims=",parameters$nsims,", ncores=",ncores,", nsims_per_core=",parameters$nsims_per_core,"]\n"))
-
   if (ncores > 1) {
-
+    # nocov start
     cl = parallel::makeCluster(ncores)
 
     # Export all functions in the global environment to each node
@@ -726,14 +724,12 @@ FutRuleNCores = function(parameters) {
     }
 
     simulations = list(sim_results = sim_results)
-
+    # nocov end
   } else {
 
     simulations = FutRuleSingleCore(parameters)
 
   }
-
-  # cat(paste("FutRuleNCore.result.rows =",nrow(simulations$sim_results),"]\n"))
 
   return(simulations)
 }

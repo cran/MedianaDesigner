@@ -26,7 +26,7 @@ ADTreatSel = function(parameters) {
   parameters$random_seed = random_seed
 
   # Set the seed of R's random number generator.
-  # It also takes effect to Rcpp randome generation functions.
+  # It also takes effect to Rcpp random generation functions.
   # https://stackoverflow.com/questions/60119621/get-the-same-sample-of-integers-from-rcpp-as-base-r
   suppressWarnings(RNGkind(sample.kind = "Rounding"))
   set.seed(random_seed)
@@ -517,7 +517,7 @@ ADTreatSelReportDoc = function(results) {
 
    # Error checks
 
-   if (class(results) != "ADTreatSelResults") stop("The object was not created by the ADTreatSel function", call. = FALSE)
+   if (!is(results, "ADTreatSelResults")) stop("The object was not created by the ADTreatSel function", call. = FALSE)
 
   #############################################################################
 

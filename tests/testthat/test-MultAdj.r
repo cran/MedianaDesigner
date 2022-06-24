@@ -305,10 +305,10 @@ checkExpectationsForCase1A = function(results) {
   expect_length(sim_summary$adj_power, 2)
 
   expect_equal(unname(sim_summary$power[1]), 0.43, tolerance = 0.1)
-  expect_equal(unname(sim_summary$power[2]), 0.73, tolerance = 0.1)
+  expect_equal(unname(sim_summary$power[2]), 0.53, tolerance = 0.1)
   expect_equal(unname(sim_summary$adj_power[1]), 0.29, tolerance = 0.1)
-  expect_equal(unname(sim_summary$adj_power[2]), 0.68, tolerance = 0.1)
-  expect_equal(unname(sim_summary$disj_power), 0.72, tolerance = 0.1)
+  expect_equal(unname(sim_summary$adj_power[2]), 0.55, tolerance = 0.1)
+  expect_equal(unname(sim_summary$disj_power), 0.6, tolerance = 0.1)
   expect_equal(unname(sim_summary$conj_power), 0.25, tolerance = 0.1)
 }
 
@@ -393,18 +393,20 @@ test_that("Success run MultAdj with Case 2A (single core)", {
   GenerateReport(results, tempfile(fileext = ".docx"))
 })
 
-test_that("Success run MultAdj with Case 2A (two cores)", {  
+if (isTestMultiCore) {
+  test_that("Success run MultAdj with Case 2A (two cores)", {  
 
-  # cat("\nTest Case 2A-two: begin...\n")
+    # cat("\nTest Case 2A-two: begin...\n")
 
-  parameters = parametersCase2A
-  parameters$ncores = 2
-  # Run simulations
-  results = MultAdj(parameters)
-  checkExpectationsForCase2A(results)
+    parameters = parametersCase2A
+    parameters$ncores = 2
+    # Run simulations
+    results = MultAdj(parameters)
+    checkExpectationsForCase2A(results)
 
-  # cat("\nTest Case 2A-two: done.\n")
-})
+    # cat("\nTest Case 2A-two: done.\n")
+  })
+}
 
 test_that("Success run MultAdj with Case 2B", {  
   # Run simulations
@@ -462,18 +464,20 @@ test_that("Success run MultAdj with Case 3A (single core)", {
   GenerateReport(results, tempfile(fileext = ".docx"))
 })
 
-test_that("Success run MultAdj with Case 3A (two cores)", {
+if (isTestMultiCore) {
+  test_that("Success run MultAdj with Case 3A (two cores)", {
 
-  # cat("\nTest Case 3A-two: begin...\n")
+    # cat("\nTest Case 3A-two: begin...\n")
 
-  # Run simulations
-  parameters = parametersCase3A
-  parameters$ncores = 2
-  results = MultAdj(parameters)
-  checkExpectationsForCase3A(results)
+    # Run simulations
+    parameters = parametersCase3A
+    parameters$ncores = 2
+    results = MultAdj(parameters)
+    checkExpectationsForCase3A(results)
 
-  # cat("\nTest Case 3A-two: done.\n")
-})
+    # cat("\nTest Case 3A-two: done.\n")
+  })
+}
 
 test_that("Success run MultAdj with Case 3B", {  
   # Run simulations

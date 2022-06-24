@@ -329,11 +329,6 @@ test_that("Success run ADTreatSel with Binary case 2 (one core)", {
   res = ADTreatSel(params)
   checkExpectationsForBinaryCase2(res)
 
-  # print for debug
-  # print(class(res))
-  # class(res) = "Result"
-  # print(res)
-
 })
 
 test_that("Success run ADTreatSel with Binary case 2 (two cores)", {
