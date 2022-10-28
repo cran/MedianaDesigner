@@ -4,14 +4,14 @@ test_that("Success run ClustRand with normal endpoint", {
 
     expect_s3_class(results, "ClustRandResults")
     expect_equal(ncol(results$pval_results), 4)
-    expect_equal(nrow(results$pval_results), 100)
+    expect_equal(nrow(results$pval_results), results$parameters$nsims)
     expect_equal(ncol(results$coef_results), 3)
-    expect_equal(nrow(results$coef_results), 100)
+    expect_equal(nrow(results$coef_results), results$parameters$nsims)
 
     sim_summary = results$sim_summary
-    expect_equal(sim_summary$power_sandwich, 0.29, tolerance=0.01)
-    expect_equal(sim_summary$power_kc, 0.24, tolerance=0.01)
-    expect_equal(sim_summary$power_md, 0.18, tolerance=0.01)
+    expect_equivalent(sim_summary$power_sandwich, 0.3, tolerance=0.01)
+    expect_equivalent(sim_summary$power_kc, 0.24, tolerance=0.01)
+    expect_equivalent(sim_summary$power_md, 0.14, tolerance=0.01)
 
     # Check for report generation
     GenerateReport(results, tempfile(fileext = ".docx"))
@@ -24,7 +24,7 @@ test_that("Success run ClustRand with binary endpoint", {
     expect_s3_class(results, "ClustRandResults")
 
     sim_summary = results$sim_summary
-    expect_equal(sim_summary$power, 0.66, tolerance=0.01)
+    expect_equivalent(sim_summary$power, 0.66, tolerance=0.02)
 
     # Check for report generation
     GenerateReport(results, tempfile(fileext = ".docx"))

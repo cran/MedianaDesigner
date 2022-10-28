@@ -1,4 +1,4 @@
-options("scipen" = 100, "digits" = 4, warn = -1)
+options("scipen" = 100, "digits" = 4)
 
 require(devEMF)
 require(officer)

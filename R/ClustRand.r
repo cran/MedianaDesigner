@@ -217,7 +217,7 @@ ClustRand = function(parameters) {
                                        "double",
                                        NA) 
 
-      if (sum(parameters$control_cluster_proportion) != 1) stop(
+      if (abs(sum(parameters$control_cluster_proportion)-1) > 0.0001) stop(
         "Relative cluster sizes in the control arm (control_cluster_proportion) are incorrectly specified.", call. = FALSE)
 
       if (narms == 2) {
@@ -1065,7 +1065,7 @@ ClustRandReportDoc = function(results) {
 
   for (i in 1:narms) {
 
-    if (parameters$method_index == 1) {
+    if (parameters$endpoint_index == 1) {
 
       col1 = c(col1, trial_arms[i], "")
       col2 = c(col2, "Between-cluster standard deviation", "Intra-cluster correlation coefficient")
@@ -1073,7 +1073,7 @@ ClustRandReportDoc = function(results) {
 
     }
 
-    if (parameters$method_index == 2) {
+    if (parameters$endpoint_index == 2) {
 
       col1 = c(col1, trial_arms[i])
       col2 = c(col2, "Intra-cluster correlation coefficient")

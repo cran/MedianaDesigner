@@ -1,4 +1,4 @@
-commonNSim = 100
+commonNSim = 50
 isTestMultiCore = FALSE
 
 ################################################
@@ -305,7 +305,7 @@ checkExpectationsForCase1A = function(results) {
   expect_length(sim_summary$adj_power, 2)
 
   expect_equal(unname(sim_summary$power[1]), 0.43, tolerance = 0.1)
-  expect_equal(unname(sim_summary$power[2]), 0.53, tolerance = 0.1)
+  expect_equal(unname(sim_summary$power[2]), 0.66, tolerance = 0.1)
   expect_equal(unname(sim_summary$adj_power[1]), 0.29, tolerance = 0.1)
   expect_equal(unname(sim_summary$adj_power[2]), 0.55, tolerance = 0.1)
   expect_equal(unname(sim_summary$disj_power), 0.6, tolerance = 0.1)

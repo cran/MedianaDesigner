@@ -1,5 +1,5 @@
 globalTestNCores = 1
-globalTestNSims  = 100
+globalTestNSims  = 50
 
 ######################################
 # Normal endpoint with 2 arms and fixed cluster sizes
