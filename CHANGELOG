@@ -38,4 +38,5 @@ Fixed minor bugs and added the following feature:
 - Add a new module for designing cluster-randomized trials (ClustRand function).
 
 2022-10-18 Version 0.9
-Fixed minor bug on M1 mac chips.
+2022-10-29 Version 0.10
+Fixed minor bugs on M1 mac chips.
