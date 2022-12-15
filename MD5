@@ -1,5 +1,5 @@
-0e4fd11519c071596294e44e192f4e03 *CHANGELOG
-b9236262510ecc7340df793876911483 *DESCRIPTION
+48777e92ca84645aebdaa8f0912fa81e *CHANGELOG
+30a5d260dbe56c05dfcbbc9d54b4cf87 *DESCRIPTION
 d2ec1cfba2a4dccbe475344c739b3793 *NAMESPACE
 32ab1bea3e8c3cb9a2911e912df64bb6 *R/ADPopSel.r
 1d753dff9ffbb42cb369ab1c88f6af92 *R/ADRand.r
@@ -12,7 +12,7 @@ dc939b164dc75038e40f55873b67e2cd *R/FutRule.r
 3acfb69444a8c49f4f80554af0dea983 *R/RcppExports.R
 f6a20f0d2757a7c0291ee1ef5b6f627a *R/ShinyApps.r
 d0ab0890510165fb2cb7788d5a2d3d51 *R/common.r
-97203068716443b04c4626ab83546bea *data/EventPredData.RData
+427bdf9b1a8a1bb06d719cbe46e9d133 *data/EventPredData.RData
 93a27766f65c1a113ca00772fc0794fb *inst/ADPopSelApp/server.r
 1280883b917cbac4b55a6f7e9f993ddc *inst/ADPopSelApp/ui.r
 02f47c46e0f0e78df17470e165f3737a *inst/ADPopSelApp/www/SymbolMediana.svg
@@ -107,7 +107,7 @@ fb56c17dc3ea16befcd5345fe65908e0 *src/varcuboid.h
 bdc00fa4e8ddd1998b61fa4397cbf801 *tests/testthat/helper-Checker.R
 83f6006df4d3cca7010b60dc6f4b80da *tests/testthat/helper-ClustRandCases.R
 6d3d2b94cdb4ccea399a20a2fdd388e0 *tests/testthat/test-ADPopSel.r
-6e6cab1f8d5b791ef6a34f40a20f823b *tests/testthat/test-ADRand.r
+1f1f5e5f49747b4ea887a2bef75b56c2 *tests/testthat/test-ADRand.r
 1c110b0be75ad813420ebc45534cd639 *tests/testthat/test-ADSSMod.r
 10ac095e2c4d21a69e05345141b2f3eb *tests/testthat/test-ADTreatSel.r
 3fd494948c623679bc8bc1799cf99209 *tests/testthat/test-ClustRand.r
