@@ -5,11 +5,22 @@ require(officer)
 require(flextable)
 require(foreach)
 require(doParallel)
-require(doRNG)
 require(parallel)
 suppressPackageStartupMessages(require(lme4))
 suppressPackageStartupMessages(require(lmerTest))
 require(rootSolve)
+
+# Check for installed package doRNG
+local.packages <- library()$results[,1]
+is.doRGN <- "doRNG" %in% local.packages
+if (is.doRGN) {
+  require("doRNG")
+} else {
+  # Dirty doRNG emulation for RCHECK tests
+  `%dorng%` <- function(obj, ex){
+    obj %dopar% ex
+  }
+}
 
 endpoint_list = c("Normal", "Binary", "Time-to-event")
 

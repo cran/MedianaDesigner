@@ -178,6 +178,12 @@ ADTreatSel = function(parameters) {
                            "int",
                            NA) 
 
+    if (!is.doRGN && ncores > 1) {
+      warning("Please install the doRNG package to use multi-core simulation. Only one core will be used.")
+      ncores = 1
+    }
+
+    parameters$ncores = ncores
   } else {
     parameters$ncores = 1
   }
@@ -428,7 +434,7 @@ ADTreatSel = function(parameters) {
   # Run simulations on multiple cores to compute key characteristics
 
   if (parameters$ncores > 1) {
-
+    # nocov start
     cl = parallel::makeCluster(parameters$ncores)
 
     # Export all functions in the global environment to each node
@@ -449,7 +455,7 @@ ADTreatSel = function(parameters) {
       sim_results = rbind(sim_results, simulation_list[[i]]$sim_results)
 
     }
-
+    # nocov end
   } else {
 
     simulations = ADTreatSelSingleCore(parameters)

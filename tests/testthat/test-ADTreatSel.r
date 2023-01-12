@@ -320,16 +320,32 @@ test_that("Success run ADTreatSel with Binary case 2 (one core)", {
 
 })
 
-test_that("Success run ADTreatSel with Binary case 2 (two cores)", {
-  
-  # Success run
-  params = binaryCase2
-  params$sims = 100
-  params$ncores = 2
-  res = ADTreatSel(params)
-  checkExpectationsForBinaryCase2(res)
+if (isTestMultiCore) {
+  test_that("Success run ADTreatSel with Binary case 2 (two cores)", {
+    
+    # Check for installed package doRNG
+    local.packages <- library()$results[,1]
+    is.doRGN <- "doRNG" %in% local.packages
 
-})
+    # Success run
+    params = binaryCase2
+    params$sims = 100
+    params$ncores = 2
+
+    if (is.doRGN) {
+      res = ADTreatSel(params)
+    } else {
+      expect_warning(
+        {
+          res = ADTreatSel(params)
+        }
+      )
+    }
+
+    checkExpectationsForBinaryCase2(res)
+
+  })
+}
 
 test_that("Success run ADTreatSel with Time-to-event case", {
 

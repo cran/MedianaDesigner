@@ -386,6 +386,13 @@ ADRand = function(parameters) {
                             c("Value"),
                             "int",
                             NA) 
+      
+      if (!is.doRGN && ncores > 1) {
+      warning("Please install the doRNG package to use multi-core simulation. Only one core will be used.")
+      ncores = 1
+    }
+
+    parameters$ncores = ncores
       # nocov end
     } else {
       parameters$ncores = 1
