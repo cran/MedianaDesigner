@@ -1,5 +1,5 @@
-5da42647ed8cd54de6d09cbaaacd03dd *CHANGELOG
-4f4104f6a818b730913386d3c5b5cf6a *DESCRIPTION
+0f0eaf16cc3b5a0cba6bca5b6c95c43f *CHANGELOG
+0709523cedfa8762317fd8ac1b0d4f9f *DESCRIPTION
 e718937102febe480d0a84aa4afd5c5a *NAMESPACE
 5fabe31389a3036aca8b4e4709eefad8 *R/ADPopSel.r
 ae460917e26bbcc026ca046394675d28 *R/ADRand.r
@@ -12,7 +12,7 @@ dc79927c562ac648b93667a94e759394 *R/ADTreatSel.r
 3acfb69444a8c49f4f80554af0dea983 *R/RcppExports.R
 f6a20f0d2757a7c0291ee1ef5b6f627a *R/ShinyApps.r
 af8a827a7287cda5bb667bde31d70d0b *R/common.r
-427bdf9b1a8a1bb06d719cbe46e9d133 *data/EventPredData.RData
+514da48cd885debb5c44c36504c88895 *data/EventPredData.RData
 93a27766f65c1a113ca00772fc0794fb *inst/ADPopSelApp/server.r
 1280883b917cbac4b55a6f7e9f993ddc *inst/ADPopSelApp/ui.r
 02f47c46e0f0e78df17470e165f3737a *inst/ADPopSelApp/www/SymbolMediana.svg
@@ -87,14 +87,14 @@ b9a2b2476da2fbcf5186f02a9d7a6dee *man/FutRuleExample1.Rd
 36ad80c6b40cfe543518545bf47b9873 *man/FutRuleExample2.Rd
 8477d7ecac31277489a22d70d0e2e74e *man/FutRuleExample3.Rd
 782dcfe75c87cc7460d08865498b32f8 *man/GenerateReport.Rd
-165f76a56546d60726e45d007680b1dc *man/MedianaDesigner-package.Rd
+9999e3599acbe476f5501e04b3e36408 *man/MedianaDesigner-package.Rd
 c1d06982249cf03bcd9f09836cf5f0b3 *man/MultAdj.Rd
 c2c73e277d2d270a363cb485982bc49f *man/MultAdjApp.Rd
 d60b4a0ceac2a7f2236ce0c6749a8682 *man/MultAdjExample1.Rd
 93f983a6e3ee6f3865e69b549926c22c *man/MultAdjExample2.Rd
 63983ef0fc06c1ece9c427d9639c0878 *man/MultAdjExample3.Rd
-dfe77b5f7ebad0f8fcf51e2eae226cdb *src/Makevars
-db18ab75a221a92eef6f1f89f49f9e8f *src/Makevars.win
+aa273343887bf8e57fa600050a5c4969 *src/Makevars
+aa273343887bf8e57fa600050a5c4969 *src/Makevars.win
 a2216511bd75b587af2c39de97cb0c03 *src/RcppExports.cpp
 d2d3105e1a1fbefecdedfcadd8240f25 *src/md.cpp
 173c2d6d56a0e0ff72064b4a6f0a2ffc *src/meddist.h
